@@ -1,0 +1,31 @@
+#Get SSH enabled
+sudo apt install openssh-server
+
+#Download install file (I store it on an FTP drive)
+sudo apt -y install lftp
+lftp -u anonymous,anonymous -e "get nso-5.1.0.1.linux.x86_64.signed.bin;quit" 192.168.0.196
+
+sudo sh nso-5.1.0.1.linux.x86_64.installer.bin $HOME/ncs-5.1 --local-install
+sh nso-5.1.0.1.linux.x86_64.installer.bin $HOME/nso-5.1 
+source $HOME/ncs-5.1/ncsrc
+ncs-setup --dest $HOME/ncs-run 
+sudo sh nso-5.1.0.1.linux.x86_64.installer.bin --system-install
+
+
+sudo -s
+echo 2 > /proc/sys/vm/overcommit_memory
+source /etc/profile.d/ncs.sh 
+
+ cd /opt/ncs 
+ rm -f current 
+ ln -s ncs-5.1 current
+ 
+#This should error 
+cp /home/dhimes/ncs-run/ncs-cdb/*.cdb /var/opt/ncs/cdb 
+
+sh nso-5.1.0.1.linux.x86_64.signed.bin   --skip-verification
+sudo sh nso-5.1.0.1.linux.x86_64.installer.bin --system-install
+
+#put into .bashrc
+source $HOME/ncs-5.1/ncsrc
+ncs-setup --dest $HOME/ncs-run
