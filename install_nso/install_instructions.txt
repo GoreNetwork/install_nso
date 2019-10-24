@@ -29,6 +29,7 @@ sudo sh nso-5.1.0.1.linux.x86_64.installer.bin --system-install
 #put into .bashrc
 source $HOME/ncs-5.1/ncsrc
 ncs-setup --dest $HOME/ncs-run
+NCS_JAVA_VM_OPTIONS=-Xmx1G
 
 
 sudo apt install -y software-properties-common git tree traceroute python-dev python-pip libxml2-dev libxslt1-dev zlib1g-dev vim libssl-dev libffi-dev fonts-inconsolata python-setuptools libxml2-utils ant default-jdk gawk
