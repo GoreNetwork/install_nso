@@ -29,3 +29,10 @@ sudo sh nso-5.1.0.1.linux.x86_64.installer.bin --system-install
 #put into .bashrc
 source $HOME/ncs-5.1/ncsrc
 ncs-setup --dest $HOME/ncs-run
+
+
+sudo apt install -y software-properties-common git tree traceroute python-dev python-pip libxml2-dev libxslt1-dev zlib1g-dev vim libssl-dev libffi-dev fonts-inconsolata python-setuptools libxml2-utils ant default-jdk gawk
+
+
+cd /home/dhimes/ncs-run/packages/(Every package)/src
+make clean all
