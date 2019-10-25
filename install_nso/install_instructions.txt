@@ -34,6 +34,29 @@ NCS_JAVA_VM_OPTIONS=-Xmx1G
 
 sudo apt install -y software-properties-common git tree traceroute python-dev python-pip libxml2-dev libxslt1-dev zlib1g-dev vim libssl-dev libffi-dev fonts-inconsolata python-setuptools libxml2-utils ant default-jdk gawk
 
+#Copy over and unpack all NEDs
+#cd /home/dhimes/ncs-run/packages/(Every package)/src
+#make clean all
 
-cd /home/dhimes/ncs-run/packages/(Every package)/src
+
+
+tar xvzf ncs-4.6.1-arista-dcs-5.0.tar.gz
+tar xvzf ncs-4.6.1-cisco-aireos-3.3.2.tar.gz
+tar xvzf ncs-4.6.1-cisco-ios-6.0.1.tar.gz
+tar xvzf ncs-4.6.1-cisco-iosxr-7.0.1.tar.gz
+
+
+/home/dhimes/ncs-run/packages
+
+
+
+cd /home/dhimes/ncs-run/packages/arista-dcs/src
+make clean all
+cd /home/dhimes/ncs-run/packages/cisco-aireos/src
+make clean all
+cd /home/dhimes/ncs-run/packages/cisco-ios/src
+make clean all
+cd /home/dhimes/ncs-run/packages/cisco-iosxr/src
+make clean all
+cd /home/dhimes/ncs-run/packages/cisco-nx/src
 make clean all
